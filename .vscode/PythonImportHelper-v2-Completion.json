@@ -1,0 +1,290 @@
+[
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "smtplib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "smtplib",
+        "description": "smtplib",
+        "detail": "smtplib",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "Template",
+        "importPath": "string",
+        "description": "string",
+        "isExtraImport": true,
+        "detail": "string",
+        "documentation": {}
+    },
+    {
+        "label": "Template",
+        "importPath": "string",
+        "description": "string",
+        "isExtraImport": true,
+        "detail": "string",
+        "documentation": {}
+    },
+    {
+        "label": "MIMEText",
+        "importPath": "email.mime.text",
+        "description": "email.mime.text",
+        "isExtraImport": true,
+        "detail": "email.mime.text",
+        "documentation": {}
+    },
+    {
+        "label": "MIMEText",
+        "importPath": "email.mime.text",
+        "description": "email.mime.text",
+        "isExtraImport": true,
+        "detail": "email.mime.text",
+        "documentation": {}
+    },
+    {
+        "label": "MIMEMultipart",
+        "importPath": "email.mime.multipart",
+        "description": "email.mime.multipart",
+        "isExtraImport": true,
+        "detail": "email.mime.multipart",
+        "documentation": {}
+    },
+    {
+        "label": "MIMEMultipart",
+        "importPath": "email.mime.multipart",
+        "description": "email.mime.multipart",
+        "isExtraImport": true,
+        "detail": "email.mime.multipart",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "urllib,",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "urllib.",
+        "description": "urllib.",
+        "detail": "urllib.",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
+        "label": "literal_eval",
+        "importPath": "ast",
+        "description": "ast",
+        "isExtraImport": true,
+        "detail": "ast",
+        "documentation": {}
+    },
+    {
+        "label": "sentMail",
+        "kind": 2,
+        "importPath": "Email",
+        "description": "Email",
+        "peekOfCode": "def sentMail():\n    try:\n        sending_ts = datetime.now()\n        sub = \"หัวข้อไง %s\" % sending_ts.strftime('%Y-%m-%d %H:%M:%S')\n        msg = MIMEMultipart('alternative')\n        msg['From'] = email_address\n        msg['To'] = email_address\n        msg['Subject'] = sub\n        body = \"ส่งได้แล้วววว\"\n        msg.attach(MIMEText(body, 'plain'))",
+        "detail": "Email",
+        "documentation": {}
+    },
+    {
+        "label": "email_address",
+        "kind": 5,
+        "importPath": "Email",
+        "description": "Email",
+        "peekOfCode": "email_address = 'replay10540@gmail.com'\nemail_password = '0875507608' \ndata = {\"my\": \"foo\", \"yours\": \"bar\"}\n# send_email(data)\ndef sentMail():\n    try:\n        sending_ts = datetime.now()\n        sub = \"หัวข้อไง %s\" % sending_ts.strftime('%Y-%m-%d %H:%M:%S')\n        msg = MIMEMultipart('alternative')\n        msg['From'] = email_address",
+        "detail": "Email",
+        "documentation": {}
+    },
+    {
+        "label": "email_password",
+        "kind": 5,
+        "importPath": "Email",
+        "description": "Email",
+        "peekOfCode": "email_password = '0875507608' \ndata = {\"my\": \"foo\", \"yours\": \"bar\"}\n# send_email(data)\ndef sentMail():\n    try:\n        sending_ts = datetime.now()\n        sub = \"หัวข้อไง %s\" % sending_ts.strftime('%Y-%m-%d %H:%M:%S')\n        msg = MIMEMultipart('alternative')\n        msg['From'] = email_address\n        msg['To'] = email_address",
+        "detail": "Email",
+        "documentation": {}
+    },
+    {
+        "label": "data",
+        "kind": 5,
+        "importPath": "Email",
+        "description": "Email",
+        "peekOfCode": "data = {\"my\": \"foo\", \"yours\": \"bar\"}\n# send_email(data)\ndef sentMail():\n    try:\n        sending_ts = datetime.now()\n        sub = \"หัวข้อไง %s\" % sending_ts.strftime('%Y-%m-%d %H:%M:%S')\n        msg = MIMEMultipart('alternative')\n        msg['From'] = email_address\n        msg['To'] = email_address\n        msg['Subject'] = sub",
+        "detail": "Email",
+        "documentation": {}
+    },
+    {
+        "label": "get_users",
+        "kind": 2,
+        "importPath": "Email2",
+        "description": "Email2",
+        "peekOfCode": "def get_users(file_name):\n    names = []\n    emails = []\n    with open(file_name, mode='r', encoding='utf-8') as user_file:\n        for user_info in user_file:\n            names.append(user_info.split()[0])\n            emails.append(user_info.split()[1])\n    return names, emails\ndef parse_template(data_file):\n    with open(data_file, 'r', encoding='utf-8') as msg_template:",
+        "detail": "Email2",
+        "documentation": {}
+    },
+    {
+        "label": "parse_template",
+        "kind": 2,
+        "importPath": "Email2",
+        "description": "Email2",
+        "peekOfCode": "def parse_template(data_file):\n    with open(data_file, 'r', encoding='utf-8') as msg_template:\n        msg_template_content = msg_template.read()\n    return Template(msg_template_content)\ndef main():\n    names, emails = get_users('contact55s.txt') # read user details\n    message_template = parse_template('message.txt')\n    # set up the SMTP server\n    smtp_server = smtplib.SMTP(host='smtp.gmail.com', port=25)\n    smtp_server.starttls()",
+        "detail": "Email2",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "Email2",
+        "description": "Email2",
+        "peekOfCode": "def main():\n    names, emails = get_users('contact55s.txt') # read user details\n    message_template = parse_template('message.txt')\n    # set up the SMTP server\n    smtp_server = smtplib.SMTP(host='smtp.gmail.com', port=25)\n    smtp_server.starttls()\n    smtp_server.login(FROM_EMAIL, MY_PASSWORD)\n    # Get each user detail and send the email:\n    for name, email in zip(names, emails):\n        multipart_msg = MIMEMultipart()       # create a message",
+        "detail": "Email2",
+        "documentation": {}
+    },
+    {
+        "label": "FROM_EMAIL",
+        "kind": 5,
+        "importPath": "Email2",
+        "description": "Email2",
+        "peekOfCode": "FROM_EMAIL = 'replay10540@gmail.com'\nMY_PASSWORD = '0875507608'\ndef get_users(file_name):\n    names = []\n    emails = []\n    with open(file_name, mode='r', encoding='utf-8') as user_file:\n        for user_info in user_file:\n            names.append(user_info.split()[0])\n            emails.append(user_info.split()[1])\n    return names, emails",
+        "detail": "Email2",
+        "documentation": {}
+    },
+    {
+        "label": "MY_PASSWORD",
+        "kind": 5,
+        "importPath": "Email2",
+        "description": "Email2",
+        "peekOfCode": "MY_PASSWORD = '0875507608'\ndef get_users(file_name):\n    names = []\n    emails = []\n    with open(file_name, mode='r', encoding='utf-8') as user_file:\n        for user_info in user_file:\n            names.append(user_info.split()[0])\n            emails.append(user_info.split()[1])\n    return names, emails\ndef parse_template(data_file):",
+        "detail": "Email2",
+        "documentation": {}
+    },
+    {
+        "label": "url",
+        "kind": 5,
+        "importPath": "Scraping",
+        "description": "Scraping",
+        "peekOfCode": "url = \"https://store.siamphone.com/services/spec/test?&order_by=release_date%20desc\"\nheaders = {\n    'Access-Control-Allow-Origin': '*',\n    'Access-Control-Allow-Methods': 'GET',\n    'Access-Control-Allow-Headers': 'Content-Type',\n    'Access-Control-Max-Age': '3600',\n    'Accept-Encoding': 'identity',\n    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'\n    }\nreq = requests.get(url, headers)",
+        "detail": "Scraping",
+        "documentation": {}
+    },
+    {
+        "label": "headers",
+        "kind": 5,
+        "importPath": "Scraping",
+        "description": "Scraping",
+        "peekOfCode": "headers = {\n    'Access-Control-Allow-Origin': '*',\n    'Access-Control-Allow-Methods': 'GET',\n    'Access-Control-Allow-Headers': 'Content-Type',\n    'Access-Control-Max-Age': '3600',\n    'Accept-Encoding': 'identity',\n    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'\n    }\nreq = requests.get(url, headers)\nsoup = BeautifulSoup(req.content,'html.parser')",
+        "detail": "Scraping",
+        "documentation": {}
+    },
+    {
+        "label": "req",
+        "kind": 5,
+        "importPath": "Scraping",
+        "description": "Scraping",
+        "peekOfCode": "req = requests.get(url, headers)\nsoup = BeautifulSoup(req.content,'html.parser')\ndatanow = datetime.datetime.now().strftime(\"%Y-%m\")\nresponse =  json.loads(str(soup))\ndata = response['hits']['hits']\nsucessdata = [];\nfor i in range(len(data)):\n  datephone = datetime.datetime.strptime(data[i]['_source']['release_date_t'], '%Y-%m-%d').strftime(\"%Y-%m\")\n  if datanow == datephone :\n      if data[i]['_source']['price'] != 0 :",
+        "detail": "Scraping",
+        "documentation": {}
+    },
+    {
+        "label": "soup",
+        "kind": 5,
+        "importPath": "Scraping",
+        "description": "Scraping",
+        "peekOfCode": "soup = BeautifulSoup(req.content,'html.parser')\ndatanow = datetime.datetime.now().strftime(\"%Y-%m\")\nresponse =  json.loads(str(soup))\ndata = response['hits']['hits']\nsucessdata = [];\nfor i in range(len(data)):\n  datephone = datetime.datetime.strptime(data[i]['_source']['release_date_t'], '%Y-%m-%d').strftime(\"%Y-%m\")\n  if datanow == datephone :\n      if data[i]['_source']['price'] != 0 :\n        newdata = {",
+        "detail": "Scraping",
+        "documentation": {}
+    },
+    {
+        "label": "datanow",
+        "kind": 5,
+        "importPath": "Scraping",
+        "description": "Scraping",
+        "peekOfCode": "datanow = datetime.datetime.now().strftime(\"%Y-%m\")\nresponse =  json.loads(str(soup))\ndata = response['hits']['hits']\nsucessdata = [];\nfor i in range(len(data)):\n  datephone = datetime.datetime.strptime(data[i]['_source']['release_date_t'], '%Y-%m-%d').strftime(\"%Y-%m\")\n  if datanow == datephone :\n      if data[i]['_source']['price'] != 0 :\n        newdata = {\n            \"brandname\":data[i]['_source']['brand_name'],",
+        "detail": "Scraping",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "Scraping",
+        "description": "Scraping",
+        "peekOfCode": "response =  json.loads(str(soup))\ndata = response['hits']['hits']\nsucessdata = [];\nfor i in range(len(data)):\n  datephone = datetime.datetime.strptime(data[i]['_source']['release_date_t'], '%Y-%m-%d').strftime(\"%Y-%m\")\n  if datanow == datephone :\n      if data[i]['_source']['price'] != 0 :\n        newdata = {\n            \"brandname\":data[i]['_source']['brand_name'],\n            \"name\":data[i]['_source']['model_fullname'],",
+        "detail": "Scraping",
+        "documentation": {}
+    },
+    {
+        "label": "data",
+        "kind": 5,
+        "importPath": "Scraping",
+        "description": "Scraping",
+        "peekOfCode": "data = response['hits']['hits']\nsucessdata = [];\nfor i in range(len(data)):\n  datephone = datetime.datetime.strptime(data[i]['_source']['release_date_t'], '%Y-%m-%d').strftime(\"%Y-%m\")\n  if datanow == datephone :\n      if data[i]['_source']['price'] != 0 :\n        newdata = {\n            \"brandname\":data[i]['_source']['brand_name'],\n            \"name\":data[i]['_source']['model_fullname'],\n            \"price\":data[i]['_source']['price'],",
+        "detail": "Scraping",
+        "documentation": {}
+    },
+    {
+        "label": "sucessdata",
+        "kind": 5,
+        "importPath": "Scraping",
+        "description": "Scraping",
+        "peekOfCode": "sucessdata = [];\nfor i in range(len(data)):\n  datephone = datetime.datetime.strptime(data[i]['_source']['release_date_t'], '%Y-%m-%d').strftime(\"%Y-%m\")\n  if datanow == datephone :\n      if data[i]['_source']['price'] != 0 :\n        newdata = {\n            \"brandname\":data[i]['_source']['brand_name'],\n            \"name\":data[i]['_source']['model_fullname'],\n            \"price\":data[i]['_source']['price'],\n            \"newprice\":data[i]['_source']['new_price'],",
+        "detail": "Scraping",
+        "documentation": {}
+    },
+    {
+        "label": "fileold",
+        "kind": 5,
+        "importPath": "Scraping",
+        "description": "Scraping",
+        "peekOfCode": "fileold = literal_eval(open(\"data_file.json\", \"r\").read())\nfor item in fileold:\n    for checkitem in sucessdata:\n           if item['price'] != checkitem['price']:\n               print(checkitem)",
+        "detail": "Scraping",
+        "documentation": {}
+    }
+]
