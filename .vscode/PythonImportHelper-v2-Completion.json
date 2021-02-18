@@ -27,6 +27,14 @@
         "documentation": {}
     },
     {
+        "label": "basename",
+        "importPath": "os.path",
+        "description": "os.path",
+        "isExtraImport": true,
+        "detail": "os.path",
+        "documentation": {}
+    },
+    {
         "label": "Template",
         "importPath": "string",
         "description": "string",
@@ -127,10 +135,36 @@
     },
     {
         "label": "sentMail",
+        "importPath": "Email",
+        "description": "Email",
+        "isExtraImport": true,
+        "detail": "Email",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "timeit",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "timeit",
+        "description": "timeit",
+        "detail": "timeit",
+        "documentation": {}
+    },
+    {
+        "label": "sentMail",
         "kind": 2,
         "importPath": "Email",
         "description": "Email",
-        "peekOfCode": "def sentMail():\n    try:\n        sending_ts = datetime.now()\n        sub = \"หัวข้อไง %s\" % sending_ts.strftime('%Y-%m-%d %H:%M:%S')\n        msg = MIMEMultipart('alternative')\n        msg['From'] = email_address\n        msg['To'] = email_address\n        msg['Subject'] = sub\n        body = \"ส่งได้แล้วววว\"\n        msg.attach(MIMEText(body, 'plain'))",
+        "peekOfCode": "def sentMail(message):\n    try:\n        sending_ts = datetime.now()\n        sub = \"New Smartphones Siamphone %s\" % sending_ts.strftime('%Y-%m-%d %H:%M:%S')\n        msg = MIMEMultipart('alternative')\n        msg['From'] = email_address\n        msg['To'] = email_address\n        msg['Subject'] = sub\n        data = \"\"\n        for item in message:",
         "detail": "Email",
         "documentation": {}
     },
@@ -139,7 +173,7 @@
         "kind": 5,
         "importPath": "Email",
         "description": "Email",
-        "peekOfCode": "email_address = 'replay10540@gmail.com'\nemail_password = '0875507608' \ndata = {\"my\": \"foo\", \"yours\": \"bar\"}\n# send_email(data)\ndef sentMail():\n    try:\n        sending_ts = datetime.now()\n        sub = \"หัวข้อไง %s\" % sending_ts.strftime('%Y-%m-%d %H:%M:%S')\n        msg = MIMEMultipart('alternative')\n        msg['From'] = email_address",
+        "peekOfCode": "email_address = 'replay10540@gmail.com'\nemail_password = '0875507608' \n# send_email(data)\ndef sentMail(message):\n    try:\n        sending_ts = datetime.now()\n        sub = \"New Smartphones Siamphone %s\" % sending_ts.strftime('%Y-%m-%d %H:%M:%S')\n        msg = MIMEMultipart('alternative')\n        msg['From'] = email_address\n        msg['To'] = email_address",
         "detail": "Email",
         "documentation": {}
     },
@@ -148,16 +182,7 @@
         "kind": 5,
         "importPath": "Email",
         "description": "Email",
-        "peekOfCode": "email_password = '0875507608' \ndata = {\"my\": \"foo\", \"yours\": \"bar\"}\n# send_email(data)\ndef sentMail():\n    try:\n        sending_ts = datetime.now()\n        sub = \"หัวข้อไง %s\" % sending_ts.strftime('%Y-%m-%d %H:%M:%S')\n        msg = MIMEMultipart('alternative')\n        msg['From'] = email_address\n        msg['To'] = email_address",
-        "detail": "Email",
-        "documentation": {}
-    },
-    {
-        "label": "data",
-        "kind": 5,
-        "importPath": "Email",
-        "description": "Email",
-        "peekOfCode": "data = {\"my\": \"foo\", \"yours\": \"bar\"}\n# send_email(data)\ndef sentMail():\n    try:\n        sending_ts = datetime.now()\n        sub = \"หัวข้อไง %s\" % sending_ts.strftime('%Y-%m-%d %H:%M:%S')\n        msg = MIMEMultipart('alternative')\n        msg['From'] = email_address\n        msg['To'] = email_address\n        msg['Subject'] = sub",
+        "peekOfCode": "email_password = '0875507608' \n# send_email(data)\ndef sentMail(message):\n    try:\n        sending_ts = datetime.now()\n        sub = \"New Smartphones Siamphone %s\" % sending_ts.strftime('%Y-%m-%d %H:%M:%S')\n        msg = MIMEMultipart('alternative')\n        msg['From'] = email_address\n        msg['To'] = email_address\n        msg['Subject'] = sub",
         "detail": "Email",
         "documentation": {}
     },
@@ -207,83 +232,29 @@
         "documentation": {}
     },
     {
-        "label": "url",
-        "kind": 5,
+        "label": "scarping",
+        "kind": 2,
         "importPath": "Scraping",
         "description": "Scraping",
-        "peekOfCode": "url = \"https://store.siamphone.com/services/spec/test?&order_by=release_date%20desc\"\nheaders = {\n    'Access-Control-Allow-Origin': '*',\n    'Access-Control-Allow-Methods': 'GET',\n    'Access-Control-Allow-Headers': 'Content-Type',\n    'Access-Control-Max-Age': '3600',\n    'Accept-Encoding': 'identity',\n    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'\n    }\nreq = requests.get(url, headers)",
+        "peekOfCode": "def scarping():\n    url = \"https://store.siamphone.com/services/spec/test?&order_by=release_date%20desc\"\n    headers = {\n        'Access-Control-Allow-Origin': '*',\n        'Access-Control-Allow-Methods': 'GET',\n        'Access-Control-Allow-Headers': 'Content-Type',\n        'Access-Control-Max-Age': '3600',\n        'Accept-Encoding': 'identity',\n        'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'\n        }",
         "detail": "Scraping",
         "documentation": {}
     },
     {
-        "label": "headers",
-        "kind": 5,
+        "label": "countdown",
+        "kind": 2,
         "importPath": "Scraping",
         "description": "Scraping",
-        "peekOfCode": "headers = {\n    'Access-Control-Allow-Origin': '*',\n    'Access-Control-Allow-Methods': 'GET',\n    'Access-Control-Allow-Headers': 'Content-Type',\n    'Access-Control-Max-Age': '3600',\n    'Accept-Encoding': 'identity',\n    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'\n    }\nreq = requests.get(url, headers)\nsoup = BeautifulSoup(req.content,'html.parser')",
+        "peekOfCode": "def countdown(t): \n    while t: \n            mins, secs = divmod(t, 60) \n            timer = '{:02d}:{:02d}'.format(mins, secs) \n            print(timer, end=\"\\r\") \n            time.sleep(1)\n            t -= 1\n    success()\ndef success():\n    countdown(int(10))",
         "detail": "Scraping",
         "documentation": {}
     },
     {
-        "label": "req",
-        "kind": 5,
+        "label": "success",
+        "kind": 2,
         "importPath": "Scraping",
         "description": "Scraping",
-        "peekOfCode": "req = requests.get(url, headers)\nsoup = BeautifulSoup(req.content,'html.parser')\ndatanow = datetime.datetime.now().strftime(\"%Y-%m\")\nresponse =  json.loads(str(soup))\ndata = response['hits']['hits']\nsucessdata = [];\nfor i in range(len(data)):\n  datephone = datetime.datetime.strptime(data[i]['_source']['release_date_t'], '%Y-%m-%d').strftime(\"%Y-%m\")\n  if datanow == datephone :\n      if data[i]['_source']['price'] != 0 :",
-        "detail": "Scraping",
-        "documentation": {}
-    },
-    {
-        "label": "soup",
-        "kind": 5,
-        "importPath": "Scraping",
-        "description": "Scraping",
-        "peekOfCode": "soup = BeautifulSoup(req.content,'html.parser')\ndatanow = datetime.datetime.now().strftime(\"%Y-%m\")\nresponse =  json.loads(str(soup))\ndata = response['hits']['hits']\nsucessdata = [];\nfor i in range(len(data)):\n  datephone = datetime.datetime.strptime(data[i]['_source']['release_date_t'], '%Y-%m-%d').strftime(\"%Y-%m\")\n  if datanow == datephone :\n      if data[i]['_source']['price'] != 0 :\n        newdata = {",
-        "detail": "Scraping",
-        "documentation": {}
-    },
-    {
-        "label": "datanow",
-        "kind": 5,
-        "importPath": "Scraping",
-        "description": "Scraping",
-        "peekOfCode": "datanow = datetime.datetime.now().strftime(\"%Y-%m\")\nresponse =  json.loads(str(soup))\ndata = response['hits']['hits']\nsucessdata = [];\nfor i in range(len(data)):\n  datephone = datetime.datetime.strptime(data[i]['_source']['release_date_t'], '%Y-%m-%d').strftime(\"%Y-%m\")\n  if datanow == datephone :\n      if data[i]['_source']['price'] != 0 :\n        newdata = {\n            \"brandname\":data[i]['_source']['brand_name'],",
-        "detail": "Scraping",
-        "documentation": {}
-    },
-    {
-        "label": "response",
-        "kind": 5,
-        "importPath": "Scraping",
-        "description": "Scraping",
-        "peekOfCode": "response =  json.loads(str(soup))\ndata = response['hits']['hits']\nsucessdata = [];\nfor i in range(len(data)):\n  datephone = datetime.datetime.strptime(data[i]['_source']['release_date_t'], '%Y-%m-%d').strftime(\"%Y-%m\")\n  if datanow == datephone :\n      if data[i]['_source']['price'] != 0 :\n        newdata = {\n            \"brandname\":data[i]['_source']['brand_name'],\n            \"name\":data[i]['_source']['model_fullname'],",
-        "detail": "Scraping",
-        "documentation": {}
-    },
-    {
-        "label": "data",
-        "kind": 5,
-        "importPath": "Scraping",
-        "description": "Scraping",
-        "peekOfCode": "data = response['hits']['hits']\nsucessdata = [];\nfor i in range(len(data)):\n  datephone = datetime.datetime.strptime(data[i]['_source']['release_date_t'], '%Y-%m-%d').strftime(\"%Y-%m\")\n  if datanow == datephone :\n      if data[i]['_source']['price'] != 0 :\n        newdata = {\n            \"brandname\":data[i]['_source']['brand_name'],\n            \"name\":data[i]['_source']['model_fullname'],\n            \"price\":data[i]['_source']['price'],",
-        "detail": "Scraping",
-        "documentation": {}
-    },
-    {
-        "label": "sucessdata",
-        "kind": 5,
-        "importPath": "Scraping",
-        "description": "Scraping",
-        "peekOfCode": "sucessdata = [];\nfor i in range(len(data)):\n  datephone = datetime.datetime.strptime(data[i]['_source']['release_date_t'], '%Y-%m-%d').strftime(\"%Y-%m\")\n  if datanow == datephone :\n      if data[i]['_source']['price'] != 0 :\n        newdata = {\n            \"brandname\":data[i]['_source']['brand_name'],\n            \"name\":data[i]['_source']['model_fullname'],\n            \"price\":data[i]['_source']['price'],\n            \"newprice\":data[i]['_source']['new_price'],",
-        "detail": "Scraping",
-        "documentation": {}
-    },
-    {
-        "label": "fileold",
-        "kind": 5,
-        "importPath": "Scraping",
-        "description": "Scraping",
-        "peekOfCode": "fileold = literal_eval(open(\"data_file.json\", \"r\").read())\nfor item in fileold:\n    for checkitem in sucessdata:\n           if item['price'] != checkitem['price']:\n               print(checkitem)",
+        "peekOfCode": "def success():\n    countdown(int(10))\n    scarping()\nscarping()\n#countdown()\n#countdown(int(5)) \n#success()",
         "detail": "Scraping",
         "documentation": {}
     }
