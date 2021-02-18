@@ -7,26 +7,64 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime
 
-email_address = 'replay10540@gmail.com'
+email_address = 'puridech.yj@gmail.com'
 email_password = '0875507608' 
 
-
-# send_email(data)
-
-
-def sentMail(message):
+def sentMail(newitem,newprice,email):
     try:
         sending_ts = datetime.now()
         sub = "New Smartphones Siamphone %s" % sending_ts.strftime('%Y-%m-%d %H:%M:%S')
         msg = MIMEMultipart('alternative')
-        msg['From'] = email_address
-        msg['To'] = email_address
+        msg['From'] = "Notification SiamPhone"
+        msg['To'] = email
         msg['Subject'] = sub
         
         data = ""
-        for item in message:
+        for item in newitem:
             data = data + format("<tr><td>"+item["brandname"]+"</td><td>"+item["name"]+"</td><td>"+item["price"]+"</td>"
             "<td>"+item["newprice"]+"</td>""<td>"+item["datetime"]+"</td>""<td><a href="+item["link"]+">ดูข้อมูล</a></td></tr>")
+        datanewprice = ""
+        for item in newprice:
+              datanewprice = datanewprice + format("<tr><td>"+item["brandname"]+"</td><td>"+item["name"]+"</td><td>"+item["price"]+"</td>"
+            "<td>"+item["newprice"]+"</td>""<td>"+item["datetime"]+"</td>""<td><a href="+item["link"]+">ดูข้อมูล</a></td></tr>")
+        genhtmlnewprice = ""
+        genhtmlnewitem = ""
+        if len(newitem) > 0:
+             genhtmlnewitem =""" <h1>&darr; NewItem &darr;</h1>
+            <table class="blue">
+            <thead>
+                <tr>
+                <th>Brand</th>
+                <th>NamePhone</th>
+                <th>price</th>
+                <th>newprice</th>
+                <th>date</th>
+                <th>image</th>
+                </tr>
+            </thead>
+            <tbody>
+               """+data+"""
+            </tbody>
+            </table>
+              """
+        if len(newprice) > 0:
+           genhtmlnewprice ="""
+        <h1>&darr; NewPrice &darr;</h1>
+            <table class="blue">
+            <thead>
+                <tr>
+                <th>Brand</th>
+                <th>NamePhone</th>
+                <th>price</th>
+                <th>newprice</th>
+                <th>date</th>
+                <th>image</th>
+                </tr>
+            </thead>
+            <tbody>
+               """+datanewprice+"""
+            </tbody>
+            </table"""
         html = """\
         <html>
           <head>
@@ -104,26 +142,12 @@ def sentMail(message):
             }</style>
           </head>
           <body>
-           <h1>&darr; NEWITEM &darr;</h1>
-            <table class="blue">
-            <thead>
-                <tr>
-                <th>Brand</th>
-                <th>NamePhone</th>
-                <th>price</th>
-                <th>newprice</th>
-                <th>date</th>
-                <th>image</th>
-                </tr>
-            </thead>
-            <tbody>
-               """+data+"""
-            </tbody>
-            </table>
+            """+genhtmlnewitem+"""
+            """+genhtmlnewprice+"""
           </body>
         </html>
         """
-        print(html)
+        # print(html)
         #msg.attach(MIMEText(body,'plain'))
         msg.attach(MIMEText(html, 'html'))
 
@@ -136,12 +160,12 @@ def sentMail(message):
         
 
         # print(msg)
-        # server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-        # server.ehlo()
-        # server.login(email_address, email_password)
-        # # server.sendmail(email_address, email_address, "msg")
-        # server.send_message(msg)
-        # server.close()
+        server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+        server.ehlo()
+        server.login(email_address, email_password)
+        # server.sendmail(email_address, email_address, "msg")
+        server.send_message(msg)
+        server.close()
 
         print ('Email sent!')
     except ValueError:

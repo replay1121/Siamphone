@@ -43,35 +43,11 @@
         "documentation": {}
     },
     {
-        "label": "Template",
-        "importPath": "string",
-        "description": "string",
-        "isExtraImport": true,
-        "detail": "string",
-        "documentation": {}
-    },
-    {
         "label": "MIMEText",
         "importPath": "email.mime.text",
         "description": "email.mime.text",
         "isExtraImport": true,
         "detail": "email.mime.text",
-        "documentation": {}
-    },
-    {
-        "label": "MIMEText",
-        "importPath": "email.mime.text",
-        "description": "email.mime.text",
-        "isExtraImport": true,
-        "detail": "email.mime.text",
-        "documentation": {}
-    },
-    {
-        "label": "MIMEMultipart",
-        "importPath": "email.mime.multipart",
-        "description": "email.mime.multipart",
-        "isExtraImport": true,
-        "detail": "email.mime.multipart",
         "documentation": {}
     },
     {
@@ -160,11 +136,20 @@
         "documentation": {}
     },
     {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
         "label": "sentMail",
         "kind": 2,
         "importPath": "Email",
         "description": "Email",
-        "peekOfCode": "def sentMail(message):\n    try:\n        sending_ts = datetime.now()\n        sub = \"New Smartphones Siamphone %s\" % sending_ts.strftime('%Y-%m-%d %H:%M:%S')\n        msg = MIMEMultipart('alternative')\n        msg['From'] = email_address\n        msg['To'] = email_address\n        msg['Subject'] = sub\n        data = \"\"\n        for item in message:",
+        "peekOfCode": "def sentMail(newitem,newprice,email):\n    try:\n        sending_ts = datetime.now()\n        sub = \"New Smartphones Siamphone %s\" % sending_ts.strftime('%Y-%m-%d %H:%M:%S')\n        msg = MIMEMultipart('alternative')\n        msg['From'] = \"Notification SiamPhone\"\n        msg['To'] = email\n        msg['Subject'] = sub\n        data = \"\"\n        for item in newitem:",
         "detail": "Email",
         "documentation": {}
     },
@@ -173,7 +158,7 @@
         "kind": 5,
         "importPath": "Email",
         "description": "Email",
-        "peekOfCode": "email_address = 'replay10540@gmail.com'\nemail_password = '0875507608' \n# send_email(data)\ndef sentMail(message):\n    try:\n        sending_ts = datetime.now()\n        sub = \"New Smartphones Siamphone %s\" % sending_ts.strftime('%Y-%m-%d %H:%M:%S')\n        msg = MIMEMultipart('alternative')\n        msg['From'] = email_address\n        msg['To'] = email_address",
+        "peekOfCode": "email_address = 'puridech.yj@gmail.com'\nemail_password = '0875507608' \ndef sentMail(newitem,newprice,email):\n    try:\n        sending_ts = datetime.now()\n        sub = \"New Smartphones Siamphone %s\" % sending_ts.strftime('%Y-%m-%d %H:%M:%S')\n        msg = MIMEMultipart('alternative')\n        msg['From'] = \"Notification SiamPhone\"\n        msg['To'] = email\n        msg['Subject'] = sub",
         "detail": "Email",
         "documentation": {}
     },
@@ -182,53 +167,35 @@
         "kind": 5,
         "importPath": "Email",
         "description": "Email",
-        "peekOfCode": "email_password = '0875507608' \n# send_email(data)\ndef sentMail(message):\n    try:\n        sending_ts = datetime.now()\n        sub = \"New Smartphones Siamphone %s\" % sending_ts.strftime('%Y-%m-%d %H:%M:%S')\n        msg = MIMEMultipart('alternative')\n        msg['From'] = email_address\n        msg['To'] = email_address\n        msg['Subject'] = sub",
+        "peekOfCode": "email_password = '0875507608' \ndef sentMail(newitem,newprice,email):\n    try:\n        sending_ts = datetime.now()\n        sub = \"New Smartphones Siamphone %s\" % sending_ts.strftime('%Y-%m-%d %H:%M:%S')\n        msg = MIMEMultipart('alternative')\n        msg['From'] = \"Notification SiamPhone\"\n        msg['To'] = email\n        msg['Subject'] = sub\n        data = \"\"",
         "detail": "Email",
         "documentation": {}
     },
     {
-        "label": "get_users",
+        "label": "inputNumber",
         "kind": 2,
-        "importPath": "Email2",
-        "description": "Email2",
-        "peekOfCode": "def get_users(file_name):\n    names = []\n    emails = []\n    with open(file_name, mode='r', encoding='utf-8') as user_file:\n        for user_info in user_file:\n            names.append(user_info.split()[0])\n            emails.append(user_info.split()[1])\n    return names, emails\ndef parse_template(data_file):\n    with open(data_file, 'r', encoding='utf-8') as msg_template:",
-        "detail": "Email2",
+        "importPath": "Scraping",
+        "description": "Scraping",
+        "peekOfCode": "def inputNumber(message):\n    while True:\n        try:\n            userInput = int(input(message))       \n        except ValueError:\n            print(\"Not an integer! Try again.\")\n            continue\n        else:\n            return userInput \n            break",
+        "detail": "Scraping",
         "documentation": {}
     },
     {
-        "label": "parse_template",
+        "label": "inputemail",
         "kind": 2,
-        "importPath": "Email2",
-        "description": "Email2",
-        "peekOfCode": "def parse_template(data_file):\n    with open(data_file, 'r', encoding='utf-8') as msg_template:\n        msg_template_content = msg_template.read()\n    return Template(msg_template_content)\ndef main():\n    names, emails = get_users('contact55s.txt') # read user details\n    message_template = parse_template('message.txt')\n    # set up the SMTP server\n    smtp_server = smtplib.SMTP(host='smtp.gmail.com', port=25)\n    smtp_server.starttls()",
-        "detail": "Email2",
+        "importPath": "Scraping",
+        "description": "Scraping",
+        "peekOfCode": "def inputemail(email):\n    while True:\n        email = input(email)\n        if(re.search(regex,email)):  \n            print(\"Valid Email\")\n            return email        \n            break  \n        else:\n            print(\"Please Enter the Email Agian:\")\n            continue",
+        "detail": "Scraping",
         "documentation": {}
     },
     {
-        "label": "main",
+        "label": "contains",
         "kind": 2,
-        "importPath": "Email2",
-        "description": "Email2",
-        "peekOfCode": "def main():\n    names, emails = get_users('contact55s.txt') # read user details\n    message_template = parse_template('message.txt')\n    # set up the SMTP server\n    smtp_server = smtplib.SMTP(host='smtp.gmail.com', port=25)\n    smtp_server.starttls()\n    smtp_server.login(FROM_EMAIL, MY_PASSWORD)\n    # Get each user detail and send the email:\n    for name, email in zip(names, emails):\n        multipart_msg = MIMEMultipart()       # create a message",
-        "detail": "Email2",
-        "documentation": {}
-    },
-    {
-        "label": "FROM_EMAIL",
-        "kind": 5,
-        "importPath": "Email2",
-        "description": "Email2",
-        "peekOfCode": "FROM_EMAIL = 'replay10540@gmail.com'\nMY_PASSWORD = '0875507608'\ndef get_users(file_name):\n    names = []\n    emails = []\n    with open(file_name, mode='r', encoding='utf-8') as user_file:\n        for user_info in user_file:\n            names.append(user_info.split()[0])\n            emails.append(user_info.split()[1])\n    return names, emails",
-        "detail": "Email2",
-        "documentation": {}
-    },
-    {
-        "label": "MY_PASSWORD",
-        "kind": 5,
-        "importPath": "Email2",
-        "description": "Email2",
-        "peekOfCode": "MY_PASSWORD = '0875507608'\ndef get_users(file_name):\n    names = []\n    emails = []\n    with open(file_name, mode='r', encoding='utf-8') as user_file:\n        for user_info in user_file:\n            names.append(user_info.split()[0])\n            emails.append(user_info.split()[1])\n    return names, emails\ndef parse_template(data_file):",
-        "detail": "Email2",
+        "importPath": "Scraping",
+        "description": "Scraping",
+        "peekOfCode": "def contains(list, filter):\n    for x in list:\n        if filter(x):\n            return True\n    return False\ndef scarping():\n    url = \"https://store.siamphone.com/services/spec/test?&order_by=release_date%20desc\"\n    headers = {\n        'Access-Control-Allow-Origin': '*',\n        'Access-Control-Allow-Methods': 'GET',",
+        "detail": "Scraping",
         "documentation": {}
     },
     {
@@ -245,7 +212,7 @@
         "kind": 2,
         "importPath": "Scraping",
         "description": "Scraping",
-        "peekOfCode": "def countdown(t): \n    while t: \n            mins, secs = divmod(t, 60) \n            timer = '{:02d}:{:02d}'.format(mins, secs) \n            print(timer, end=\"\\r\") \n            time.sleep(1)\n            t -= 1\n    success()\ndef success():\n    countdown(int(10))",
+        "peekOfCode": "def countdown(t): \n    while t: \n            mins, secs = divmod(t, 60) \n            timer = '{:02d}:{:02d}'.format(mins, secs) \n            print(timer, end=\"\\r\") \n            time.sleep(1)\n            t -= 1\n    scarping()\ndef success():\n    countdown(int(t))",
         "detail": "Scraping",
         "documentation": {}
     },
@@ -254,7 +221,34 @@
         "kind": 2,
         "importPath": "Scraping",
         "description": "Scraping",
-        "peekOfCode": "def success():\n    countdown(int(10))\n    scarping()\nscarping()\n#countdown()\n#countdown(int(5)) \n#success()",
+        "peekOfCode": "def success():\n    countdown(int(t))\nscarping()",
+        "detail": "Scraping",
+        "documentation": {}
+    },
+    {
+        "label": "regex",
+        "kind": 5,
+        "importPath": "Scraping",
+        "description": "Scraping",
+        "peekOfCode": "regex = '^[a-z0-9]+[\\._]?[a-z0-9]+[@]\\w+[.]\\w{2,3}$'\ndef inputNumber(message):\n    while True:\n        try:\n            userInput = int(input(message))       \n        except ValueError:\n            print(\"Not an integer! Try again.\")\n            continue\n        else:\n            return userInput ",
+        "detail": "Scraping",
+        "documentation": {}
+    },
+    {
+        "label": "email",
+        "kind": 5,
+        "importPath": "Scraping",
+        "description": "Scraping",
+        "peekOfCode": "email = inputemail(\"Enter the email you want to send notifications for : \")\nt=inputNumber(\"Please Set Time Cooldown Data(Min):\")\nt = t*60\nprint(\"****************************************************************************************\")\ndef contains(list, filter):\n    for x in list:\n        if filter(x):\n            return True\n    return False\ndef scarping():",
+        "detail": "Scraping",
+        "documentation": {}
+    },
+    {
+        "label": "t",
+        "kind": 5,
+        "importPath": "Scraping",
+        "description": "Scraping",
+        "peekOfCode": "t = t*60\nprint(\"****************************************************************************************\")\ndef contains(list, filter):\n    for x in list:\n        if filter(x):\n            return True\n    return False\ndef scarping():\n    url = \"https://store.siamphone.com/services/spec/test?&order_by=release_date%20desc\"\n    headers = {",
         "detail": "Scraping",
         "documentation": {}
     }

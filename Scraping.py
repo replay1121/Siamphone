@@ -6,8 +6,49 @@ from ast import literal_eval
 from Email import sentMail
 import time
 import timeit
+import re 
 
 
+regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
+def inputNumber(message):
+    while True:
+        try:
+            userInput = int(input(message))       
+        except ValueError:
+            print("Not an integer! Try again.")
+            continue
+        else:
+            return userInput 
+            break
+def inputemail(email):
+    while True:
+        email = input(email)
+        if(re.search(regex,email)):  
+            print("Valid Email")
+            return email        
+            break  
+        else:
+            print("Please Enter the Email Agian:")
+            continue
+            
+            
+  
+    # pass the regular expression 
+    # and the string in search() method 
+    
+         
+print("****************************************************************************************")
+email = inputemail("Enter the email you want to send notifications for : ")
+t=inputNumber("Please Set Time Cooldown Data(Min):")
+
+t = t*60
+print("****************************************************************************************")
+
+def contains(list, filter):
+    for x in list:
+        if filter(x):
+            return True
+    return False
 
 def scarping():
     url = "https://store.siamphone.com/services/spec/test?&order_by=release_date%20desc"
@@ -31,7 +72,7 @@ def scarping():
     for i in range(len(data)):
         datephone = datetime.datetime.strptime(data[i]['_source']['release_date_t'], '%Y-%m-%d').strftime("%Y-%m")
         if datanow == datephone :
-         if data[i]['_source']['price'] != 0 :
+        #  if data[i]['_source']['price'] != 0 :
             newdata = {
                 "brandname":data[i]['_source']['brand_name'],
                 "name":data[i]['_source']['model_fullname'],
@@ -41,30 +82,45 @@ def scarping():
                 # "image":data[i]['_source']['image_pic1'],
                 "link":data[i]['_source']['link_spec']
             }
-            # print(newdata)
+            
             sucessdata.append(newdata)
-    # print(sucessdata);
-    # with open("data_file.json", "w") as write_file:
-    #      json.dump(sucessdata, write_file)
+    
     fileold = literal_eval(open("data_file.json", "r").read())
     
     datanewprice = []
+    datanewitem = []
+    
     for checkitem in sucessdata:
         for item in fileold:
             if  checkitem['name']  == item['name']:
                 if  checkitem['price'] != item['price'] :
-                    # print(checkitem)
                     datanewprice.append(checkitem)
-                elif item['name'] != checkitem['name']:
-                    #   print("newitem",checkitem)
-                    datanewprice.append(checkitem)
-                else:
-                    print("newitem",checkitem)
-
-    #print(checkitems)
-    #sentMail(checkitems)
-    #success()
+            
+            else:
+                pass
+        if contains(fileold, lambda x: x['name'] == checkitem['name']):
+            pass
+        else:
+           if (checkitem in fileold) == False:
+                 datanewitem.append(checkitem)
+        
     
+   
+    if len(datanewitem) > 0:
+        sentMail(datanewitem,datanewprice,email)
+        with open("data_file.json", "w") as write_file:
+          json.dump(sucessdata, write_file)
+        print("Send Message Success")
+    elif len(datanewprice) > 0:
+        sentMail(datanewitem,datanewprice,email)
+        with open("data_file.json", "w") as write_file:
+          json.dump(sucessdata, write_file)
+        print("Send Message Success")
+    else:
+        print("Not Sent Email")
+    success()
+    
+
                
 def countdown(t): 
     while t: 
@@ -73,14 +129,13 @@ def countdown(t):
             print(timer, end="\r") 
             time.sleep(1)
             t -= 1
-    success()
+   
+    scarping()
 
     
 def success():
-    countdown(int(10))
-    scarping()
+    countdown(int(t))
+   
+
 
 scarping()
-#countdown()
-#countdown(int(5)) 
-#success()
